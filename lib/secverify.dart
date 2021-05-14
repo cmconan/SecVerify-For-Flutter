@@ -13,21 +13,21 @@ class Secverify {
   /*
   * 获取SDK版本号
   * */
-  static Future<String> get getVersion async {
-    final String version = await _channel.invokeMethod(SecVerifySDKMethods.getVersion.name);
+  static Future<String?> get getVersion async {
+    final String? version = await _channel.invokeMethod(SecVerifySDKMethods.getVersion.name);
     return version;
   }
 
   /*
    * 获取设备版本号
    */
-  static Future<String> get platformVersion async {
-    final String platformVersion = await _channel.invokeMethod(SecVerifySDKMethods.platformVersion.name);
+  static Future<String?> get platformVersion async {
+    final String? platformVersion = await _channel.invokeMethod(SecVerifySDKMethods.platformVersion.name);
     return platformVersion;
   }
 
-  static Future<dynamic> submitPrivacyGrantResult([bool status, Function(bool) result]) {
-    final Map<String, bool> params = {'status': status};
+  static Future<dynamic> submitPrivacyGrantResult([bool? status, Function(bool)? result]) {
+    final Map<String, bool?> params = {'status': status};
     Future<dynamic> callBack = _channel.invokeMethod(SecVerifySDKMethods.uploadPrivacyStatus.name, params);
     callBack.then((dynamic response) {
       // if (response != null && response is bool) {
@@ -43,7 +43,7 @@ class Secverify {
   * CMCC:Mobile CUCC:Union CTCC:Telecom UNKNOW:Unknow
   * */
   static Future<dynamic> get currentOperatorType async {
-    final String operator = await _channel.invokeMethod(SecVerifySDKMethods.currentOperatorType.name);
+    final String? operator = await _channel.invokeMethod(SecVerifySDKMethods.currentOperatorType.name);
     return operator;
   }
 
@@ -67,8 +67,8 @@ class Secverify {
   /*
   * isVerifySupport
   * */
-  static Future<bool> get isVerifySupport async {
-    final bool isSupport = await _channel.invokeMethod(SecVerifySDKMethods.secVerifyEnable.name);
+  static Future<bool?> get isVerifySupport async {
+    final bool? isSupport = await _channel.invokeMethod(SecVerifySDKMethods.secVerifyEnable.name);
     return isSupport;
   }
 
@@ -77,7 +77,7 @@ class Secverify {
   *
   * @params timeout optional double value
   * */
-  static Future<dynamic> preVerify({double timeout = 4.0, @required SecVerifyResultListener result}) {
+  static Future<dynamic> preVerify({double timeout = 4.0, required SecVerifyResultListener result}) {
     final Map<String, dynamic> params = {'timeout': timeout};
     Future<dynamic> callBack = _channel.invokeMethod(SecVerifySDKMethods.preVerify.name, params);
 
@@ -128,15 +128,15 @@ class Secverify {
   * @params timeout optional double value
   * @params result Function(Map dict, Map err)
   * */
-  static Future<dynamic> verify(
+  static Future<dynamic>? verify(
       SecVerifyUIConfig config,
-      {SecVerifyResultListener openAuthListener,
-        SecVerifyResultListener cancelAuthPageListener,
-        SecVerifyResultListener oneKeyLoginListener,
-        SecVerifyResultListener customEventListener,
-        SecVerifyResultListener androidEventListener}) {
+      {SecVerifyResultListener? openAuthListener,
+        SecVerifyResultListener? cancelAuthPageListener,
+        SecVerifyResultListener? oneKeyLoginListener,
+        SecVerifyResultListener? customEventListener,
+        SecVerifyResultListener? androidEventListener}) {
     final Map<String, dynamic> params = config.toJson();
-    Future<dynamic> callBack;
+    Future<dynamic>? callBack;
     if (Platform.isIOS) {
       callBack = _channel.invokeMethod(
           SecVerifySDKMethods.verify.name, params);
@@ -195,7 +195,7 @@ class Secverify {
   * @params timeout optional double value
   * @params result Function(Map dict, Map err)
   * */
-  static Future<dynamic> mobileAuthToken({double timeout, @required SecVerifyResultListener result}) {
+  static Future<dynamic> mobileAuthToken({double? timeout, required SecVerifyResultListener result}) {
     final Map<String, dynamic> args = {'timeout': timeout};
     Future<dynamic> callBack = _channel.invokeMethod(SecVerifySDKMethods.mobileAuthToken.name, args);
     if(Platform.isAndroid) {
@@ -227,10 +227,10 @@ class Secverify {
   * mobileVerify
   * */
   static Future<dynamic> mobileVerify({
-    @required String phoneNum,
-    @required Map<String, dynamic> tokenInfo,
-    double timeout,
-    @required SecVerifyResultListener result
+    required String phoneNum,
+    required Map<String, dynamic> tokenInfo,
+    double? timeout,
+    required SecVerifyResultListener result
   }) {
     final Map<String, dynamic> args = {'phoneNum': phoneNum, 'tokenInfo': tokenInfo, 'timeout': timeout};
     Future<dynamic> callBack = _channel.invokeMethod(SecVerifySDKMethods.mobileVerify.name, args);

@@ -6,19 +6,20 @@ author: lishuzhi1121 <lishuzhi1121@163.com>
 homepage: https://www.mob.com
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
-  flutter: ">=1.12.0"
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: ">=2.0.5"
 
 dependencies:
   flutter:
     sdk: flutter
-  json_annotation: ^3.0.1
+  json_annotation:
+  collection: ^1.15.0-nullsafety.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.2.2
-  json_serializable: ^3.2.5
+  build_runner:
+  json_serializable:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

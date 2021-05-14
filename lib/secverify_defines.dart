@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-typedef SecVerifyResultListener = void Function(Map rt, Map err);
+typedef SecVerifyResultListener = void Function(Map? rt, Map? err);
 
 enum verifyListenerType {
   openAuthPage, // 拉起授权页面回调
@@ -13,7 +13,7 @@ class SecVerifySDKMethod {
   final num id;
   final String name;
 
-  SecVerifySDKMethod({@required this.name, @required this.id}): assert(name != null), assert(id != null), super();
+  SecVerifySDKMethod({required this.name, required this.id}): assert(name != null), assert(id != null), super();
 }
 
 class SecVerifySDKMethods {
