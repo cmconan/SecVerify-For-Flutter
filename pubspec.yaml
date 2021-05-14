@@ -1,6 +1,6 @@
 name: secverify
 description: The operator gateway takes the number and verifies the mobile phone number in one second.
-version: 1.22.5
+version: 1.22.6
 author: lishuzhi1121 <lishuzhi1121@163.com>
 #author: lipf <loverfei.1314@gmail.com>
 homepage: https://www.mob.com
@@ -12,7 +12,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  json_annotation:
   collection: ^1.15.0-nullsafety.4
 
 dev_dependencies:
