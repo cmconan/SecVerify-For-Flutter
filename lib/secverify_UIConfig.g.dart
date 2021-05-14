@@ -75,7 +75,7 @@ SecVerifyUIConfigIOS _$SecVerifyUIConfigIOSFromJson(Map<String, dynamic> json) {
     ..loginBtnCornerRadius = json['loginBtnCornerRadius'] as num?
     ..loginBtnBorderColor = json['loginBtnBorderColor'] as String?
     ..loginBtnBgImgNames =
-        (json['loginBtnBgImgNames'] as List?)?.map((e) => e as String)?.toList()
+        (json['loginBtnBgImgNames'] as List?)?.map((e) => e as String).toList()
     ..logoHidden = json['logoHidden'] as bool?
     ..logoImageName = json['logoImageName'] as String?
     ..logoCornerRadius = json['logoCornerRadius'] as num?
@@ -94,7 +94,7 @@ SecVerifyUIConfigIOS _$SecVerifyUIConfigIOSFromJson(Map<String, dynamic> json) {
     ..privacyLineSpacing = json['privacyLineSpacing'] as num?
     ..privacyTextAlignment = _$enumDecodeNullable(
         _$iOSTextAlignmentEnumMap, json['privacyTextAlignment'])
-    ..privacySettings = (json['privacySettings'] as List?)?.map((e) => e == null ? null : SecVerifyUIConfigIOSPrivacyText.fromJson(e as Map<String, dynamic>))?.toList() as List<SecVerifyUIConfigIOSPrivacyText>?
+    ..privacySettings = (json['privacySettings'] as List?)?.map((e) => e == null ? null : SecVerifyUIConfigIOSPrivacyText.fromJson(e as Map<String, dynamic>)).toList() as List<SecVerifyUIConfigIOSPrivacyText>?
     ..sloganHidden = json['sloganHidden'] as bool?
     ..sloganText = json['sloganText'] as String?
     ..sloganBgColor = json['sloganBgColor'] as String?
@@ -173,7 +173,7 @@ Map<String, dynamic> _$SecVerifyUIConfigIOSToJson(
   writeNotNull('privacyTextAlignment',
       _$iOSTextAlignmentEnumMap[instance.privacyTextAlignment!]);
   writeNotNull('privacySettings',
-      instance.privacySettings?.map((e) => e?.toJson())?.toList());
+      instance.privacySettings?.map((e) => e.toJson()).toList());
   writeNotNull('sloganHidden', instance.sloganHidden);
   writeNotNull('sloganText', instance.sloganText);
   writeNotNull('sloganBgColor', instance.sloganBgColor);
@@ -183,7 +183,7 @@ Map<String, dynamic> _$SecVerifyUIConfigIOSToJson(
   writeNotNull('sloganCorner', instance.sloganCorner);
   writeNotNull('sloganBorderWidth', instance.sloganBorderWidth);
   writeNotNull('sloganBorderColor', instance.sloganBorderColor);
-  writeNotNull('widgets', instance.widgets?.map((e) => e?.toJson())?.toList());
+  writeNotNull('widgets', instance.widgets?.map((e) => e.toJson()).toList());
   writeNotNull('portraitLayouts', instance.portraitLayouts?.toJson());
   writeNotNull('landscapeLayouts', instance.landscapeLayouts?.toJson());
   return val;
@@ -847,7 +847,7 @@ Map<String, dynamic> _$SecVerifyUIConfigAndroidToJson(
   writeNotNull(
       'customView',
       instance.customView
-          ?.map((k, e) => MapEntry(k, e?.map((e) => e?.toJson())?.toList())));
+          ?.map((k, e) => MapEntry(k, e.map((e) => e.toJson()).toList())));
   writeNotNull('logoImgPath', instance.logoImgPath);
   writeNotNull('logoWidth', instance.logoWidth);
   writeNotNull('logoHeight', instance.logoHeight);
